@@ -24,12 +24,12 @@ origin = sphere(pos=vector(0,0,0), color = color.yellow, radius = 0.04)
 
 # System Mass
 #EDIT THIS (next one line): 
-ball.m = 1
+ball.m = 0.45
 
 #Initial Conditions
 #EDIT THIS (next three lines, as necessary) 
-ball.pos = vector(-1,0,0)
-ball.vel = vector(1,0,0)
+ball.pos = vector(+0.00,0,0)
+ball.vel = vector(-1.10,0,0)
 t = 0  #the time when we choose to start our clock
 
 
@@ -51,16 +51,16 @@ deltat = 0.01
 
 # CALCULATION LOOP(Motion Prediction and Visualization)
 # ===========================================
-while t < 2.0:
+while t < 1.10:
     #Calculate Net Force
     #EDIT THIS (next one line; add more lines if necessary)
-    Fnet=vector(1,1,1)
+    Fnet=vector(0,0,0)
     #Predict new velocity (Insert Newton's 2nd Law here)
     #EDIT THIS (next one line)
-    ball.vel = ball.vel + vector(0,0,0)
+    ball.vel = ball.vel + (Fnet / ball.m) * deltat
     #Predict new position
     #EDIT THIS (next one line)
-    ball.pos = ball.pos + vector(0.01,0,0)
+    ball.pos = ball.pos + (ball.vel * deltat)
     # advance the clock
     t = t + deltat
 
