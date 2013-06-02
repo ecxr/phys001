@@ -42,11 +42,11 @@ deltat = 0.01
 
 #OPTIONAL: Output model predictions to file (.csv format)
 #To use, uncomment next five lines (delete leftmost # ONLY)
-#outputfile = open('pythonTest.csv', 'wb') # Set name of output file.
-#                                        # NOTE: if the file already exists,
-#                                         # it will be overwritten                                  
-#DataWriter = csv.writer(outputfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL) # Create writer object
-#DataWriter.writerow(['Time (s)','Position (m)']) # Write column headers for time, position, and velocity
+outputfile = open('pythonTest.csv', 'wb') # Set name of output file.
+                                        # NOTE: if the file already exists,
+                                         # it will be overwritten                                  
+DataWriter = csv.writer(outputfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL) # Create writer object
+DataWriter.writerow(['Time (s)','Position (m)']) # Write column headers for time, position, and velocity
 
 
 # CALCULATION LOOP(Motion Prediction and Visualization)
@@ -78,7 +78,7 @@ while t < 1.10:
 
     #OPTIONAL: Output model predictions to file (.csv format)
     #To use, uncomment next line
-    #DataWriter.writerow([str(t),str(ball.pos.x)])
+    DataWriter.writerow([str(t),str(ball.pos.x)])
 
 
 
@@ -87,4 +87,4 @@ print(t,ball.pos.x)
 
 #OPTIONAL: Output model predictions to file (.csv format)
 #To use, uncomment next line
-#outputfile.close()
+outputfile.close()
